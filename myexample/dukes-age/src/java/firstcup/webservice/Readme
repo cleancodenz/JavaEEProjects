@@ -1,0 +1,66 @@
+DukesAgeResource is a JAX-RS resource class that responds to HTTP GET requests and
+returns a String representing the age of Duke at the time of the request.
+
+To create DukesAgeResource, use the wizard provided by the JAX-RS plug-in for NetBeans IDE to generate the resource class. 
+This class is annotated with the javax.ws.rs.Path annotation, 
+which specifies the URL suffix to which the resource will respond. 
+DukesAgeResource has a single method, getText, 
+annotated with the javax.ws.rs.GET and javax.ws.rs.Produces annotations. 
+@GET marks the method as a responder to HTTP GET requests, 
+and @Produces specifies the MIME-type of the response sent back from getText to clients. 
+In this case, the MIME-type is text/plain.
+
+
+Creating the Endpoint
+In NetBeans IDE, create a web project with a source file called DukesAgeResource.java in the firstcup.webservice package using the RESTful Web Service wizard.
+
+Create the Project in NetBeans
+From the File menu, choose New Project.
+In the Categories pane, select Java Web.
+In the Projects pane, select Web Application.
+Click Next.
+In the Project Name field, type dukes-age.
+In the Project Location field, browse to tut-install/myexample, where tut-install is the location of the firstcup tutorial installation.
+Click Next.
+Select your GlassFish Server instance from the Server menu.
+Select Java EE 6 Web from the Java EE Version menu.
+In the Context Path field, type /DukesAgeService.
+Click Finish.
+You should now see the module you created in the Projects tab.
+
+From the Projects tab, right-click the index.jsp file and select Delete. Click Yes in the dialog.
+Create the DukesAgeResource Class
+Select the dukes-age project in the Projects tab.
+From the File menu, choose New File.
+In the Categories pane, select Web Services.
+In the File Types pane, select RESTful Web Services From Patterns.
+Click Next.
+Under Select Pattern, select Simple Root Resource and click Next.
+In the Resource Package field, type firstcup.webservice.
+In the Path field, type dukesAge.
+In the Class Name field, type DukesAgeResource.
+From the MIME Type menu, select text/plain.
+Click Finish.
+In the REST Resources Configuration dialog, uncheck Add Jersey Library and click OK.
+
+Configure the dukes-age Web Application
+Set the default URL that is brought up in a web browser when you run dukes-age.
+
+Right-click the dukes-age project in the Projects tab and select Properties.
+In the Categories pane, click Run.
+Set Relative URL to /resources/dukesAge.
+Click OK.
+Remove the putText Method
+The DukesAgeResource JAX-RS resource doesn't respond to HTTP PUT requests. Delete the generated putText method in DukesAgeResource.
+
+Building and Deploying the Web Service
+Build the JAX-RS web application and deploy it to your GlassFish Server instance.
+
+Build and Deploy the Web Service Endpoint
+Compile, package, and deploy dukes-age.war to GlassFish Server. This task gives instructions on deploying dukes-age.war in NetBeans IDE.
+
+Right-click dukes-age in the Projects tab and select Run.
+After dukes-age.war deploys successfully to GlassFish Server a web browser will load the URL of the DukesAgeResource path, and you'll see the returned String representing Duke's age.
+
+
+**** ApplicationConfig path is wrong, need to change to match relative path setting for this project
