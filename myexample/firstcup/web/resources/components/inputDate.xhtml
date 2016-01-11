@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <!--
+    A composite component is a set of user-defined JavaServerFaces and Facelets components located in a resource. 
+    In firstcup, the inputDate.xhtml resource, located in the components resource library, 
+    is a composite component that contains tags for reading in a date the user enters in a form. 
+    Composite components consist of an interface definition and an implementation.
+    
+    The interface definition is specified with the <cc:interface> tag to define which attributes are 
+    exposed to pages that use the composite component. 
+    
+    Attributes are identified with the <cc:attribute> tag.
+    
+    -->
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="date" />
+    </cc:interface>
+
+    <!--
+      The implementation of the composite component is specified with the <cc:implementation> tag.
+    
+    The tags within the <cc:implementation> are the actual component tags that will be added to pages that use the composite component.
+    They can be any HTML Render Kit, JavaServer Faces, or Facelets tags. 
+    
+    The #{cc.attrs.attribute-name} expression is used to get the value of the specified attribute from
+    the page or component that is using the composite component.
+    
+    The implementation of the inputDate composite component is as follows. 
+    An HTML input text component will store the entered text into the date attribute, 
+    accessed by the #{cc.attrs.date} expression. 
+    
+    A JavaServer Faces convertDateTime component will convert the entered text to a date with the form of MM/dd/yyyy (04/13/2009, for example).
+        
+    -->
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:inputText value="#{cc.attrs.date}">
+            <f:convertDateTime pattern="MM/dd/yyyy" />
+        </h:inputText>
+    </cc:implementation>
+</html>
