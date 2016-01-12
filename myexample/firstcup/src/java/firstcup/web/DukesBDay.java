@@ -25,9 +25,10 @@ import javax.validation.constraints.NotNull;
  * @author johnson
  */
 /**
+ * @javax.inject.Named(value = "DukesBDay")
  replace @managedbean with @Named(value = "DukesBDay")
  **/
-@javax.inject.Named(value = "DukesBDay")
+@ManagedBean
 @SessionScoped
 public class DukesBDay {
 
